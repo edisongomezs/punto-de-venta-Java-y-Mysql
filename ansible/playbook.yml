@@ -1,0 +1,10 @@
+- name: Deploy punto de venta
+  hosts: webserver
+  tasks:
+    - name: Copy Docker Compose file
+      template:
+        src: ansible/roles/deploy/templates/docker-compose.yml.j2
+        dest: /path/to/docker-compose.yml
+
+    - name: Deploy application
+      command: docker-compose up -d

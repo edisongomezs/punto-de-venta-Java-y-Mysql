@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurations xmlns="http://www.netbeans.org/ns/j2se-project/3">
+    <configuration name="default" shared="false">
+        <properties>
+            <property name="file.reference.librerias/AbsoluteLayout.jar" value="librerias/AbsoluteLayout.jar"/>
+            <property name="file.reference.librerias/itextpdf-5.5.1.jar" value="librerias/itextpdf-5.5.1.jar"/>
+            <property name="file.reference.librerias/jcalendar-1.4.jar" value="librerias/jcalendar-1.4.jar"/>
+            <property name="file.reference.librerias/jcommon-1.0.23.jar" value="librerias/jcommon-1.0.23.jar"/>
+            <property name="file.reference.librerias/jfreechart-1.0.19.jar" value="librerias/jfreechart-1.0.19.jar"/>
+            <property name="file.reference.librerias/mysql-connector-java-8.0.19.jar" value="librerias/mysql-connector-java-8.0.19.jar"/>
+        </properties>
+    </configuration>
+</configurations>
