@@ -3,19 +3,31 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker-compose build'
+                // Usar Maven para construir el proyecto
+                sh 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
                 sh 'docker-compose up -d'
-                sh 'docker exec -it punto_de_venta ant test'
+                sh 'docker exec -it puntoventa mvn test'
                 sh 'docker-compose down'
             }
         }
-        stage('Deploy') {
+        stage('Create Docker Image and Push to Docker Hub') {
             steps {
-                sh 'docker-compose up -d'
+                ansiblePlaybook(
+                    playbook: 'ansible/create_image_puntoventa.yml',
+                    inventory: 'ansible/hosts'
+                )
+            }
+        }
+        stage('Deploy to Kubernetes') {
+            steps {
+                ansiblePlaybook(
+                    playbook: 'ansible/kube_deploy_puntoventa.yml',
+                    inventory: 'ansible/hosts'
+                )
             }
         }
     }
